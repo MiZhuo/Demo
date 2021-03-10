@@ -17,11 +17,8 @@ public class TryCatchDemo2 {
             user.setName("张三");
             user.setAge(24);
             return user;
-        }catch (Exception e){
-
         }finally {
             user.setAge(18);
-            return user;
         }
     }
 
