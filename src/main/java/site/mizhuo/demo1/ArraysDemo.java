@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @author: Mizhuo
  * @time: 2021/3/9 10:21 下午
- * @description:
+ * @description: Arrays.asList
  */
 public class ArraysDemo {
     public static void main(String[] args) {
