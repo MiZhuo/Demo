@@ -6,6 +6,7 @@
 
     <groupId>org.example</groupId>
     <artifactId>Demo</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
@@ -19,6 +20,12 @@
             </plugin>
         </plugins>
     </build>
+    <modules>
+        <module>NormalDemo</module>
+        <module>seata-demo-eureka</module>
+        <module>seata-demo-bank1</module>
+        <module>seata-demo-bank2</module>
+    </modules>
 
 
 </project>
