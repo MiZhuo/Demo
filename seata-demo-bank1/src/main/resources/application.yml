@@ -4,24 +4,24 @@ spring:
   application:
     name: seata-demo-bank1 #服务名称
   datasource:
-    local-db:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/bank1?characterEncoding=UTF-8
-      username: root
-      password: mizhuo
-      type: com.alibaba.druid.pool.DruidDataSource
-      initialSize: 5
-      minIdle: 5
-      maxActive: 20
-      maxWait: 60000
-      timeBetweenEvictionRunsMillis: 60000
-      minEvictableIdleTimeMillis: 300000
-      validationQuery: SELECT 1 FROM DUAL
-      testWhileIdle: true
-      testOnBorrow: false
-      testOnReturn: false
-      filters: stat,wall,log4j
-      logSlowSql: true
+#    local-db:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bank1?characterEncoding=UTF-8
+    username: root
+    password: mizhuo
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    filters: stat,wall,log4j
+    logSlowSql: true
   cloud:
     alibaba:
       seata:
