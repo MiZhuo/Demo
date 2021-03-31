@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @time: 2021/3/29 10:47 下午
  * @description:
  */
-@FeignClient(value = "site.mizhuo.seatademonbank2",fallback = Bank2ClientFallBack.class)
+@FeignClient(value = "seata-demon-bank2",fallback = Bank2ClientFallBack.class)
 public interface Bank2Client {
     @GetMapping("/bank2/transfer")
-    public String transfer(@RequestParam Integer id,@RequestParam double amount);
+    String transfer(@RequestParam double amount);
 }

@@ -1,28 +1,27 @@
-package site.mizhuo.seatademobank1.controller;
+package site.mizhuo.seatademobank2.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import site.mizhuo.seatademobank1.service.CustDepDetailService;
+import site.mizhuo.seatademobank2.service.CustDepDetailService;
 
 /**
  * @author: Mizhuo
- * @time: 2021/3/29 10:26 下午
+ * @time: 2021/3/31 10:40 下午
  * @description:
  */
 @RestController
-@RequestMapping("/bank1")
+@RequestMapping("/bank2")
 public class TransferController {
 
     @Autowired
     CustDepDetailService custDepDetailService;
 
-    @GetMapping("/transfer")
-    public String transfer(@RequestParam Integer id,@RequestParam double amount){
-        custDepDetailService.transfer(id,amount);
-        return "zhangsan->lisi:" + amount;
+    @GetMapping("/bank2/transfer")
+    public String transfer(@RequestParam double amount){
+        custDepDetailService.updateCustDepBal(2,amount);
+        return "";
     }
-
 }

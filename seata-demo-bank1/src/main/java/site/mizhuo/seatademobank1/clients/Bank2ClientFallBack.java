@@ -7,7 +7,7 @@ package site.mizhuo.seatademobank1.clients;
  */
 public class Bank2ClientFallBack implements Bank2Client {
     @Override
-    public String transfer(Integer id, double amount) {
+    public String transfer(double amount) {
         return "fallBack";
     }
 }
