@@ -27,7 +27,7 @@ public class CustDepDetailServiceImpl implements CustDepDetailService {
     @GlobalTransactional
     @Transactional
     @Override
-    public void transfer(Integer id, double amount) {
+    public String transfer(Integer id, double amount) {
         mapper.updateCustDepBal(id,amount * -1);
         String res = client.transfer(amount);
         if("fallBack".equals(res)){
@@ -36,5 +36,6 @@ public class CustDepDetailServiceImpl implements CustDepDetailService {
         if(amount == 250){
             throw new RuntimeException("张三向李四转账失败");
         }
+        return res;
     }
 }

@@ -21,7 +21,7 @@ public class TransferController {
 
     @GetMapping("/transfer")
     public String transfer(@RequestParam Integer id,@RequestParam double amount){
-        custDepDetailService.transfer(id,amount);
+        String res = custDepDetailService.transfer(id,amount);
         return "zhangsan->lisi:" + amount;
     }
 

@@ -19,9 +19,9 @@ public class TransferController {
     @Autowired
     CustDepDetailService custDepDetailService;
 
-    @GetMapping("/bank2/transfer")
+    @GetMapping("/transfer")
     public String transfer(@RequestParam double amount){
-        custDepDetailService.updateCustDepBal(2,amount);
-        return "";
+        custDepDetailService.updateCustDepBal(1,amount);
+        return "success";
     }
 }

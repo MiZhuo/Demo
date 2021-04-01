@@ -6,5 +6,5 @@ package site.mizhuo.seatademobank1.service;
  * @description:
  */
 public interface CustDepDetailService {
-    void transfer(Integer id, double amount);
+    String transfer(Integer id, double amount);
 }
