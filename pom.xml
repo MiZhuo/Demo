@@ -25,6 +25,7 @@
         <module>seata-demo-eureka</module>
         <module>seata-demo-bank1</module>
         <module>seata-demo-bank2</module>
+        <module>Java8Demo</module>
     </modules>
 
 

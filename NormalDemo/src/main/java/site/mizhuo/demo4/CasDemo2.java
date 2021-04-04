@@ -22,18 +22,15 @@ public class CasDemo2 {
         int threadSize = 100;
         CountDownLatch downLatch = new CountDownLatch(threadSize);
         for (int i = 0; i < threadSize; i++) {
-            Thread thread = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        for (int j = 0;j < 10 ; j++) {
-                            query();
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } finally {
-                        downLatch.countDown();
+            Thread thread = new Thread(()->{
+                try {
+                    for (int j = 0;j < 10 ; j++) {
+                        query();
                     }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
+                    downLatch.countDown();
                 }
             });
             thread.start();
