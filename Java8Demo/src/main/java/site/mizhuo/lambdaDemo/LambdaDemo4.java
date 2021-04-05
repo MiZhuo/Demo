@@ -1,6 +1,7 @@
 package site.mizhuo.lambdaDemo;
 
 import org.junit.Test;
+import site.mizhuo.Employee;
 
 import java.util.Comparator;
 import java.util.function.Consumer;
@@ -21,7 +22,7 @@ public class LambdaDemo4 {
 
     @Test
     public void test2(){
-        Employee employee = new Employee("张三",18,222);
+        Employee employee = new Employee("张三",18,222, Employee.Status.BUSY);
         Supplier<String> supplier = employee::getName;
         System.out.println(supplier.get());
     }
