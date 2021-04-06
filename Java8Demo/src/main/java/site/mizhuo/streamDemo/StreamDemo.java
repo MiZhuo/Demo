@@ -269,4 +269,18 @@ public class StreamDemo {
                 .collect(Collectors.partitioningBy(employee -> employee.getSalary() > 500));
         System.out.println(collect);
     }
+
+    /**
+     * 统计摘要
+     */
+    @Test
+    public void test10(){
+        DoubleSummaryStatistics collect = emps.stream()
+                .distinct()
+                .collect(Collectors.summarizingDouble(Employee::getSalary));
+        System.out.println(collect.getMax());
+        System.out.println(collect.getAverage());
+        System.out.println(collect.getSum());
+        System.out.println(collect.getCount());
+    }
 }
