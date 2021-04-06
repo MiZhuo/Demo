@@ -282,5 +282,11 @@ public class StreamDemo {
         System.out.println(collect.getAverage());
         System.out.println(collect.getSum());
         System.out.println(collect.getCount());
+
+        String str = emps.stream()
+                .distinct()
+                .map(Employee::getName)
+                .collect(Collectors.joining("|","---","---"));
+        System.out.println(str);
     }
 }
