@@ -120,18 +120,14 @@ public class StreamDemo2 {
                 .get();
         System.out.println(maxInteger);
     }
-    //8:找到交易最小的金额。
+    //8:找到交易金额最小的交易。
     @Test
     public void test8(){
-        Integer maxInteger = transactions.stream()
-                .map(Transaction::getValue)
-                .min(Integer::compareTo)
+        Transaction transaction = transactions.stream()
+                .min(Comparator.comparingInt(Transaction::getValue))
                 .get();
-        System.out.println(maxInteger);
+        System.out.println(transaction);
     }
-
-
-
 
     class Trader{
         private String name;

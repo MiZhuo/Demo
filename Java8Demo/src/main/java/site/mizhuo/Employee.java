@@ -20,6 +20,9 @@ public class Employee{
         this.status = status;
     }
 
+    public Employee() {
+    }
+
     public String getName() {
         return name;
     }
