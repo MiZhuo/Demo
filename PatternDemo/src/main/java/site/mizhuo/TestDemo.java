@@ -1,45 +1,54 @@
 package site.mizhuo;
 
 import org.junit.Test;
-import site.mizhuo.designPattern.adapter.DockingStation;
-import site.mizhuo.designPattern.bridge.DriverManager;
-import site.mizhuo.designPattern.bridge.MyDriverManager;
-import site.mizhuo.designPattern.bridge.MysqlDriver;
-import site.mizhuo.designPattern.bridge.OracleDriver;
-import site.mizhuo.designPattern.builder.Meal;
-import site.mizhuo.designPattern.builder.MealBuilder;
-import site.mizhuo.designPattern.chain.AbstractLogger;
-import site.mizhuo.designPattern.chain.ConsoleLogger;
-import site.mizhuo.designPattern.chain.ErrorLogger;
-import site.mizhuo.designPattern.chain.FileLogger;
-import site.mizhuo.designPattern.command.Command;
-import site.mizhuo.designPattern.command.Commander;
-import site.mizhuo.designPattern.command.MilitaryOrder;
-import site.mizhuo.designPattern.command.Soldier;
-import site.mizhuo.designPattern.composite.Area;
-import site.mizhuo.designPattern.decorator.*;
-import site.mizhuo.designPattern.facade.Computer;
-import site.mizhuo.designPattern.factory.*;
-import site.mizhuo.designPattern.filter.*;
-import site.mizhuo.designPattern.filter.ApplePhone;
-import site.mizhuo.designPattern.filter.HuaWeiPhone;
-import site.mizhuo.designPattern.flyweight.ConnectionPool;
-import site.mizhuo.designPattern.interpreter.Context;
-import site.mizhuo.designPattern.interpreter.Expression;
-import site.mizhuo.designPattern.interpreter.Minus;
-import site.mizhuo.designPattern.interpreter.Plus;
-import site.mizhuo.designPattern.iterator.Collection;
-import site.mizhuo.designPattern.iterator.Iterator;
-import site.mizhuo.designPattern.iterator.MyCollection;
-import site.mizhuo.designPattern.mediator.User;
-import site.mizhuo.designPattern.memento.Archive;
-import site.mizhuo.designPattern.memento.ArchiveTaker;
-import site.mizhuo.designPattern.memento.Game;
-import site.mizhuo.designPattern.prototype.MobileCache;
-import site.mizhuo.designPattern.proxy.MySelfRentHouse;
-import site.mizhuo.designPattern.proxy.ProxyRentHouse;
-import site.mizhuo.designPattern.proxy.RentHouse;
-import site.mizhuo.designPattern.singleton.Singleton2;
+import site.mizhuo.designpattern.adapter.DockingStation;
+import site.mizhuo.designpattern.bridge.DriverManager;
+import site.mizhuo.designpattern.bridge.MyDriverManager;
+import site.mizhuo.designpattern.bridge.MysqlDriver;
+import site.mizhuo.designpattern.bridge.OracleDriver;
+import site.mizhuo.designpattern.builder.Meal;
+import site.mizhuo.designpattern.builder.MealBuilder;
+import site.mizhuo.designpattern.chain.AbstractLogger;
+import site.mizhuo.designpattern.chain.ConsoleLogger;
+import site.mizhuo.designpattern.chain.ErrorLogger;
+import site.mizhuo.designpattern.chain.FileLogger;
+import site.mizhuo.designpattern.command.Command;
+import site.mizhuo.designpattern.command.Commander;
+import site.mizhuo.designpattern.command.MilitaryOrder;
+import site.mizhuo.designpattern.command.Soldier;
+import site.mizhuo.designpattern.composite.Area;
+import site.mizhuo.designpattern.decorator.*;
+import site.mizhuo.designpattern.facade.Computer;
+import site.mizhuo.designpattern.factory.*;
+import site.mizhuo.designpattern.filter.*;
+import site.mizhuo.designpattern.filter.ApplePhone;
+import site.mizhuo.designpattern.filter.HuaWeiPhone;
+import site.mizhuo.designpattern.flyweight.ConnectionPool;
+import site.mizhuo.designpattern.interpreter.Context;
+import site.mizhuo.designpattern.interpreter.Expression;
+import site.mizhuo.designpattern.interpreter.Minus;
+import site.mizhuo.designpattern.interpreter.Plus;
+import site.mizhuo.designpattern.iterator.Collection;
+import site.mizhuo.designpattern.iterator.Iterator;
+import site.mizhuo.designpattern.iterator.MyCollection;
+import site.mizhuo.designpattern.mediator.User;
+import site.mizhuo.designpattern.memento.Archive;
+import site.mizhuo.designpattern.memento.ArchiveTaker;
+import site.mizhuo.designpattern.observer.*;
+import site.mizhuo.designpattern.prototype.MobileCache;
+import site.mizhuo.designpattern.proxy.MySelfRentHouse;
+import site.mizhuo.designpattern.proxy.ProxyRentHouse;
+import site.mizhuo.designpattern.proxy.RentHouse;
+import site.mizhuo.designpattern.singleton.Singleton2;
+import site.mizhuo.designpattern.state.State;
+import site.mizhuo.designpattern.state.StateA;
+import site.mizhuo.designpattern.state.StateB;
+import site.mizhuo.designpattern.templete.Chrome;
+import site.mizhuo.designpattern.templete.Chromium;
+import site.mizhuo.designpattern.templete.Edge;
+import site.mizhuo.designpattern.visitor.BusinessReport;
+import site.mizhuo.designpattern.visitor.CEOVisitor;
+import site.mizhuo.designpattern.visitor.CTOVisitor;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -90,13 +99,13 @@ public class TestDemo {
     public void test5(){
         MobileCache.loadCache();
 
-        site.mizhuo.designPattern.prototype.Mobile mobile1 = MobileCache.getMobile("apple");
+        site.mizhuo.designpattern.prototype.Mobile mobile1 = MobileCache.getMobile("apple");
         System.out.println(mobile1);
 
-        site.mizhuo.designPattern.prototype.Mobile  mobile2 = MobileCache.getMobile("huawei");
+        site.mizhuo.designpattern.prototype.Mobile  mobile2 = MobileCache.getMobile("huawei");
         System.out.println(mobile2);
 
-        site.mizhuo.designPattern.prototype.Mobile  mobile3 = MobileCache.getMobile("xiaomi");
+        site.mizhuo.designpattern.prototype.Mobile  mobile3 = MobileCache.getMobile("xiaomi");
         System.out.println(mobile3);
 
     }
@@ -275,5 +284,54 @@ public class TestDemo {
         System.out.println("恢复第二次存档");
         archive.getStatusFromArchive(taker.getGame(1));
         System.out.println("当前存档是:" + archive.getStatus());
+    }
+
+    @Test
+    public void test20(){
+        Subject subject = new Subject();
+        new BinaryObserver(subject);
+        new OctalObserver(subject);
+        new HexObserver(subject);
+
+        System.out.println("第一次设置值为13");
+        subject.setState(13);
+        System.out.println("第二次设置值为24");
+        subject.setState(24);
+    }
+
+    @Test
+    public void test21(){
+        site.mizhuo.designpattern.strategy.Context context = new site.mizhuo.designpattern.strategy.Context(new site.mizhuo.designpattern.strategy.Plus());
+        System.out.println(context.executeOptions("2+8"));
+        site.mizhuo.designpattern.strategy.Context context2 = new site.mizhuo.designpattern.strategy.Context(new site.mizhuo.designpattern.strategy.Minus());
+        System.out.println(context2.executeOptions("2-8"));
+        site.mizhuo.designpattern.strategy.Context context3 = new site.mizhuo.designpattern.strategy.Context(new site.mizhuo.designpattern.strategy.Multiply());
+        System.out.println(context3.executeOptions("2*8"));
+    }
+
+    @Test
+    public void test22(){
+        Chromium browser = new Chrome();
+        browser.useBrowser();
+        browser = new Edge();
+        browser.useBrowser();
+    }
+
+    @Test
+    public void test23(){
+        site.mizhuo.designpattern.state.Context context = new site.mizhuo.designpattern.state.Context();
+        State state = new StateA();
+        state.doAction(context);
+        state = new StateB();
+        state.doAction(context);
+    }
+
+    @Test
+    public void test24(){
+        BusinessReport report = new BusinessReport();
+        System.out.println("=========== CEO看报表 ===========");
+        report.showReport(new CEOVisitor());
+        System.out.println("=========== CTO看报表 ===========");
+        report.showReport(new CTOVisitor());
     }
 }
