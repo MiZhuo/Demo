@@ -3,7 +3,7 @@ package site.mizhuo.demo1;
 /**
  * @author: Mizhuo
  * @time: 2021/3/9 9:58 下午
- * @description:
+ * @description: 父子类加载顺序
  */
 public class FatherAndSon {
     public static void main(String[] args) {

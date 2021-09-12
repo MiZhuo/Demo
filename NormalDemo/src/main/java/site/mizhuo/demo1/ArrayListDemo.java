@@ -31,22 +31,16 @@ public class ArrayListDemo {
         //取交集
         list1.retainAll(list2);
         System.out.println("交集:");
-        list1.forEach(p->{
-            System.out.println(p);
-        });
+        list1.forEach(System.out::println);
         //取并集
         list4.removeAll(list3);
         list3.addAll(list4);
         System.out.println("并集:");
-        list3.forEach(p->{
-            System.out.println(p);
-        });
+        list3.forEach(System.out::println);
         //取差集
         list6.removeAll(list5);
         System.out.println("差集:");
-        list6.forEach(p->{
-            System.out.println(p);
-        });
+        list6.forEach(System.out::println);
     }
 
     static class Person{

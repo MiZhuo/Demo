@@ -1,5 +1,7 @@
 package site.mizhuo.demo1;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -18,5 +20,22 @@ public class ArraysDemo {
         System.out.println(list2);
         list.add(8);
         System.out.println(list);
+    }
+
+    @Test
+    public void test(){
+        String[] arr = new String[]{"1","2","3"};
+        List<String> list = Arrays.asList(arr);
+        arr[0] = "-1";
+        System.out.println(list.get(0));
+    }
+
+    @Test
+    public void test2(){
+        int[] arr = {1,2,3};
+        List list = Arrays.asList(arr);
+        System.out.println(list.size());
+        System.out.println(list.get(0));
+        System.out.println(list.get(1));
     }
 }

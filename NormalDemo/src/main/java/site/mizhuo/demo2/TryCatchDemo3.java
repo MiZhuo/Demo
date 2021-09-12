@@ -3,7 +3,7 @@ package site.mizhuo.demo2;
 /**
  * @author: Mizhuo
  * @time: 2021/3/10 9:43 下午
- * @description:
+ * @description: try-catch-finally执行顺序
  */
 public class TryCatchDemo3 {
     public static void main(String[] args) {
